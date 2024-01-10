@@ -1,39 +1,33 @@
-//Переписать консольное приложение из предыдущего юнита на классы.
-//Общие требования:
-//Имена классов, свойств и методов должны быть информативными;
-//Соблюдать best practices;
-//Использовать синтаксис ES6.
-
-
-
-
-function Device(name) {
-  this.name = name;
-//   this.electric = electric;
-//   this.switchon = switchon;  
-}
-
-Device.prototype.electricDeviceWork = function () {
-    let work = false
+class Device {
+  constructor(name) {
+    this.name = name;
+  
+  }
+  electricDeviceWork() {
+    let work = false;
     if (this.electric && this.switchon) {
       work = true;
     } else {
-         work = false;
-             }
-   return (work);
+      work = false;
+    }
+    return (work);
+  }
 }
+
  
-function ElDevice(name, power, electric, switchon) {
-  this.name = name;
-  this.power = power;
-  this.electric = electric;
-  this.switchon = switchon;
-  this. showPower = function(){
-    console.log(power)
+class ElectricDevice {
+  constructor(name, power, electric, switchon) {
+    this.name = name;
+    this.power = power;
+    this.electric = electric;
+    this.switchon = switchon;
+    this.showPower = function () {
+      console.log(power);
+    };
   }
 }
   
-ElDevice.prototype = new Device();
+ElectricDevice.prototype = new Device();
 
 let sumPower = function(){
     let sum = 0;
@@ -50,9 +44,9 @@ let sumPower = function(){
 
 }
 
-const lamp = new ElDevice(name = "lampa", power = 30, electric = true, switchon = true);
-const pc = new ElDevice(name = "computer", power = 20, electric = true, switchon = true);
-const ac = new ElDevice(name = "conditioner", power = 10, electric = true, switchon = false);
+const lamp = new ElectricDevice(name = "lampa", power = 30, electric = true, switchon = true);
+const pc = new ElectricDevice(name = "computer", power = 20, electric = true, switchon = true);
+const ac = new ElectricDevice(name = "conditioner", power = 10, electric = true, switchon = false);
 let ElDiv = [lamp, pc, ac];
 
 console.log(lamp.electricDeviceWork());

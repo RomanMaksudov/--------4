@@ -1,7 +1,5 @@
 function Device(name) {
-  this.name = name;
-//   this.electric = electric;
-//   this.switchon = switchon;  
+  this.name = name;  
 }
 
 Device.prototype.electricDeviceWork = function () {
